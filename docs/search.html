@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <style>
+        /* Styling for the search container */
+        #search-container {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        /* Styling for search results */
+        #search-results {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .result-item {
+            margin: 5px 0;
+            cursor: pointer; /* Pointer cursor for clickable items */
+            color: #e8491d; /* Color for product links */
+        }
+
+        .result-item:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+    </style>
+</head>
+<body>
+    <div id="search-container">
+        <input type="text" id="search-input" placeholder="Search for products..." />
+        <button onclick="searchProducts()">Search</button>
+    </div>
+    <div id="search-results"></div>
+
+    <script>
+        // Hardcoded product list for demonstration purposes
+        const products = [
+            { name: 'Foundation', price: 1592, page: '/beauty' },
+            { name: 'Lipstick', price: 800, page: 'lipstick.html' },
+            { name: 'Eyeliner', price: 600, page: 'eyeliner.html' },
+            { name: 'Moisturizer', price: 1200, page: 'moisturizer.html' },
+        ];
+
+        function searchProducts() {
+            const input = document.getElementById('search-input').value.toLowerCase();
+            const resultsContainer = document.getElementById('search-results');
+            resultsContainer.innerHTML = ''; // Clear previous results
+
+            const filteredProducts = products.filter(product => product.name.toLowerCase().includes(input));
+
+            if (filteredProducts.length > 0) {
+                filteredProducts.forEach(product => {
+                    const resultDiv = document.createElement('div');
+                    resultDiv.className = 'result-item';
+                    resultDiv.textContent = `${product.name} - ₹${product.price}`;
+                    
+                    // Redirect to product page on click
+                    resultDiv.onclick = () => {
+                        window.location.href = product.page; // Redirect to product page
+                    };
+
+                    resultsContainer.appendChild(resultDiv);
+                });
+            } else {
+                resultsContainer.textContent = 'No products found.';
+            }
+        }
+    </script>
+</body>
+</html>

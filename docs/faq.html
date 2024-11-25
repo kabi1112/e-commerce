@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - E-Commerce Store</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333;">
+    <header style="background-color: #e8491d; padding: 20px; color: white;">
+        <h1 style="margin: 0; text-align: center;">E-Commerce Store</h1>
+        <nav>
+            <ul style="list-style-type: none; padding: 0; display: flex; justify-content: center;">
+                <li style="margin: 0 15px;"><a href="{{ url_for('home') }}" style="color: white; text-decoration: none;">Home</a></li>
+                <li style="margin: 0 15px;"><a href="{{ url_for('shop') }}" style="color: white; text-decoration: none;">Shop</a></li>
+                <li style="margin: 0 15px;"><a href="{{ url_for('about') }}" style="color: white; text-decoration: none;">About Us</a></li>
+                <li style="margin: 0 15px;"><a href="{{ url_for('contact') }}" style="color: white; text-decoration: none;">Contact Us</a></li>
+                <li style="margin: 0 15px;"><a href="{{ url_for('feedback') }}" style="color: white; text-decoration: none;">FAQs</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main style="padding: 20px;">
+        <h2 style="text-align: center; color: #e8491d;">Frequently Asked Questions</h2>
+        <div class="faq-section" style="max-width: 800px; margin: 0 auto;">
+            <div class="faq-item" style="background-color: white; margin: 10px 0; padding: 15px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                <h3 style="color: #e8491d;">What payment methods do you accept?</h3>
+                <p>We accept all major credit cards, PayPal, and bank transfers.</p>
+            </div>
+            <div class="faq-item" style="background-color: white; margin: 10px 0; padding: 15px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                <h3 style="color: #e8491d;">How can I track my order?</h3>
+                <p>Once your order is shipped, you will receive a tracking number via email. You can use this number to track your order on our website.</p>
+            </div>
+            <div class="faq-item" style="background-color: white; margin: 10px 0; padding: 15px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                <h3 style="color: #e8491d;">What is your return policy?</h3>
+                <p>We offer a 30-day return policy. Items must be returned in their original condition to qualify for a refund.</p>
+            </div>
+            <div class="faq-item" style="background-color: white; margin: 10px 0; padding: 15px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                <h3 style="color: #e8491d;">How can I contact customer support?</h3>
+                <p>You can contact us via the contact page or email us at support@example.com.</p>
+            </div>
+            <div class="faq-item" style="background-color: white; margin: 10px 0; padding: 15px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                <h3 style="color: #e8491d;">Do you ship internationally?</h3>
+                <p>Yes, we ship to select countries. Please check our shipping policy for more details.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer style="background-color: #e8491d; color: white; padding: 20px; text-align: center;">
+        <div class="footer-content">
+            <h3>Subscribe to our Newsletter</h3>
+            <form>
+                <input type="email" placeholder="Enter your email" required style="padding: 10px; margin-right: 5px; border: none; border-radius: 5px;">
+                <button type="submit" style="padding: 10px; background-color: white; color: #3b5998; border: none; border-radius: 5px;">Subscribe</button>
+            </form>
+            <div class="footer-links" style="margin-top: 10px;">
+                <h3>Quick Links</h3>
+                <ul style="list-style-type: none; padding: 0;">
+                    <li><a href="about.html" style="color: white; text-decoration: none;">About Us</a></li>
+                    <li><a href="contact.html" style="color: white; text-decoration: none;">Contact Us</a></li>
+                    <li><a href="faq.html" style="color: white; text-decoration: none;">FAQs</a></li>
+                    <li><a href="terms.html" style="color: white; text-decoration: none;">Terms & Conditions</a></li>
+                    <li><a href="privacy.html" style="color: white; text-decoration: none;">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom" style="margin-top: 10px;">
+            <p>&copy; 2024 E-Commerce Store. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

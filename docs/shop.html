@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - E-Commerce Website</title>
+    <style>
+        /* Inline CSS for layout and styling */
+        body.shop-page {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .banner-container {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+            flex-wrap: wrap; /* Allow wrapping for smaller screens */
+        }
+
+        .banner {
+            background-color: #e8491d; /* Banner background color */
+            color: white;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 300px; /* Set a max-width for consistency */
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* To contain the image */
+        }
+
+        .banner img {
+            width: 100%; /* Responsive image */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 8px;
+            display: block; /* Ensure the image behaves as a block element */
+        }
+
+        .banner h2 {
+            margin: 10px 0 0; /* Add some margin for spacing */
+        }
+
+        .banner p {
+            margin: 10px 0 0; /* Add some margin for spacing */
+        }
+
+        .category-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .category {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 120px; /* Adjust width to your preference */
+        }
+
+        .category img {
+            width: 100px; /* Set a consistent width */
+            height: 100px; /* Set a consistent height */
+            border-radius: 50%; /* Make it round */
+            object-fit: cover; /* Ensures the image covers the area */
+            border: 2px solid #e8491d; /* Optional border styling */
+        }
+
+        .category h4 {
+            margin-top: 8px; /* Space between image and text */
+            font-size: 1em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body class="shop-page">
+    <header>
+        <h1>E-Commerce Website</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/shop">Shop</a></li> <!-- Updated link -->
+                <li><a href="/cart">Cart</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="banner-container">
+            <div class="banner">
+                <img src="{{ url_for('static', filename='images/sale.png') }}" alt="Banner 1">
+                <h2>Seasonal Sale!</h2>
+                <p>Up to 50% off on selected items.</p>
+            </div>
+            <div class="banner">
+                <img src="{{ url_for('static', filename='images/banner2.jpg') }}" alt="Banner 2">
+                <h2>New Arrivals</h2>
+                <p>Check out the latest trends!</p>
+            </div>
+            <div class="banner">
+                <img src="{{ url_for('static', filename='images/business.png') }}" alt="Banner 3">
+                <h2>Millions of Business Offerings!</h2>
+                <p>Explore products and suppliers for your business from millions of offerings worldwide.</p>
+            </div>
+        </section>
+
+        <section class="category-container">
+            <div class="category">
+                <a href="/beauty">
+                    <img src="{{ url_for('static', filename='images/beauty.jpg') }}" alt="Beauty">
+                    <h4>Beauty</h4>
+                </a>
+            </div>
+            <div class="category">
+                <a href="/home-decor">
+                    <img src="{{ url_for('static', filename='images/home-decor.jpg') }}" alt="Home Decor">
+                    <h4>Home Decor</h4>
+                </a>
+            </div>
+            <div class="category">
+                <a href="/fashion">
+                    <img src="{{ url_for('static', filename='images/fashion.jpg') }}" alt="Fashion">
+                    <h4>Fashion</h4>
+                </a>
+            </div>
+            <div class="category">
+                <a href="/toys">
+                    <img src="{{ url_for('static', filename='images/toys.jpg') }}" alt="Toys">
+                    <h4>Toys</h4>
+                </a>
+            </div>
+            <div class="category">
+                <a href="/electronics">
+                    <img src="{{ url_for('static', filename='images/electronics.jpg') }}" alt="Electronics">
+                    <h4>Electronics</h4>
+                </a>
+            </div>
+            <div class="category">
+                <a href="/footwear">
+                    <img src="{{ url_for('static', filename='images/footwear.jpg') }}" alt="Footwear">
+                    <h4>Footwear</h4>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 E-Commerce Website</p>
+    </footer>
+</body>
+
+</html>

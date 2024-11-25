@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Products - E-Commerce Website</title>
+    <style>
+        /* Inline CSS for layout and styling */
+        body.beauty-page {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .product {
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            display: flex;
+            flex-direction: column; /* Use flex to align items */
+            height: 100%; /* Make product cards equal height */
+            justify-content: space-between; /* Align content to occupy full height */
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .product h3 {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+
+        .product p {
+            font-size: 0.9em;
+            color: #777;
+            margin: 5px 0;
+        }
+
+        .product .price {
+            font-weight: bold;
+            color: #333;
+            margin-top: 5px;
+        }
+
+        .quantity-container {
+            display: flex; /* Use flex for alignment */
+            align-items: center; /* Center align items */
+            margin-top: auto; /* Push to the bottom of the card */
+        }
+
+        .quantity-label {
+            margin-right: 10px; /* Space between label and input */
+            font-size: 0.9em;
+        }
+
+        .quantity input {
+            width: 60px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .add-to-cart {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .add-to-cart button {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9em;
+            background-color: #e8491d; /* Orange color */
+            padding: 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+            width: 100%; /* Full width */
+        }
+
+        .add-to-cart button:hover {
+            background-color: #d7381f; /* Darker shade on hover */
+        }
+
+        .product a {
+            display: inline-block;
+            color: #2a76e6;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9em;
+            background-color: #e8491d;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .product a:hover {
+            background-color: #d7381f; /* Darker shade on hover */
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body class="home-decor">
+    <header>
+        <h1>Home Decor</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('shop') }}">Shop</a></li>
+                <li><a href="{{ url_for('cart') }}">Cart</a></li>
+                <li><a href="{{ url_for('about') }}">About Us</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="product-grid">
+            <!-- 10 Product Items -->
+            <div class="product">
+                <img src="{{ url_for('static', filename='/images/decor1.jpg') }}" alt="Home Decor 1">
+                <h3>Wall Art</h3>
+                <p class="price">Price: ₹1,499</p>
+                <p>Quantity:</p>
+                <div class="quantity-container">
+                    <label class="quantity-label">Quantity:</label>
+                    <input type="number" value="1" min="1">
+                </div>
+                
+                <div class="add-to-cart">
+                    <button onclick="addToCart('Wall Art', '₹1,499.00', this.parentNode.previousElementSibling.children[0].value)">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="{{ url_for('static', filename='/images/decor2.jpg') }}" alt="Home Decor 2"
+                <h3>Cushion Covers</h3>
+                <p class="price">Price: ₹799</p>
+                <p>Quantity:</p>
+                <div class="quantity-container">
+                    <label class="quantity-label">Quantity:</label>
+                    <input type="number" value="1" min="1">
+                </div>
+                
+                <div class="add-to-cart">
+                    <button onclick="addToCart('Cushion Covers', '₹799.00', this.parentNode.previousElementSibling.children[0].value)">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="{{ url_for('static', filename='/images/decor3.jpg') }}" alt="Home Decor 3">
+                <h3>Table Lamp</h3>
+                <p class="price">Price: ₹2,299</p>
+                <p>Quantity:</p>
+                <div class="quantity-container">
+                    <label class="quantity-label">Quantity:</label>
+                    <input type="number" value="1" min="1">
+                </div>
+                
+                <div class="add-to-cart">
+                    <button onclick="addToCart('Table Lamp', '₹2,299.00', this.parentNode.previousElementSibling.children[0].value)">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="{{ url_for('static', filename='/images/decor4.jpg') }}" alt="Home Decor 4">
+                <h3>Floor Vase</h3>
+                <p class="price">Price: ₹1,199</p>
+                <p>Quantity:</p>
+                <div class="quantity-container">
+                    <label class="quantity-label">Quantity:</label>
+                    <input type="number" value="1" min="1">
+                </div>
+                
+                <div class="add-to-cart">
+                    <button onclick="addToCart('Floor Vase', '₹1,199.00', this.parentNode.previousElementSibling.children[0].value)">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="{{ url_for('static', filename='/images/decor5.jpg') }}" alt="Home Decor 5">
+                <h3>Wall Mirror</h3>
+                <p class="price">Price: ₹1,899</p>
+                <p>Quantity:</p>
+                <div class="quantity-container">
+                    <label class="quantity-label">Quantity:</label>
+                    <input type="number" value="1" min="1">
+                </div>
+                
+                <div class="add-to-cart">
+                    <button onclick="addToCart('Wall Mirror', '₹1,899.00', this.parentNode.previousElementSibling.children[0].value)">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="{{ url_for('static', filename='/images/decor6.jpg') }}" alt="Home Decor 6">
+                <h3>Decorative Bowl</h3>
+                <p class="price">Price: ₹699</p>
+                <p>Quantity:</p>
+                <div class="quantity-container">
+                    <label class="quantity-label">Quantity:</label>
+                    <input type="number" value="1" min="1">
+                </div>
+                
+                <div class="add-to-cart">
+                    <button onclick="addToCart('Decorative Bowl', '₹699.00', this.parentNode.previousElementSibling.children[0].value)">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="{{ url_for('static', filename='/images/decor7.jpg') }}" alt="Home Decor 7">
+                <h3>String Lights</h3>
+                <p class="price">Price: ₹599</p>
+                <p>Quantity:</p>
+                <div class="quantity-container">
+                    <label class="quantity-label">Quantity:</label>
+                    <input type="number" value="1" min="1">
+                </div>
+                
+                <div class="add-to-cart">
+                    <button onclick="addToCart('String Lights', '₹599.00', this.parentNode.previousElementSibling.children[0].value)">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="{{ url_for('static', filename='/images/decor8.jpg') }}" alt="Home Decor 8">
+                <h3>Throw Blanket</h3>
+                <p class="price">Price: ₹1,499</p>
+                <p>Quantity:</p>
+                <div class="quantity-container">
+                    <label class="quantity-label">Quantity:</label>
+                    <input type="number" value="1" min="1">
+                </div>
+                
+                <div class="add-to-cart">
+                    <button onclick="addToCart('Throw Blanket', '₹1,499.00', this.parentNode.previousElementSibling.children[0].value)">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="{{ url_for('static', filename='/images/decor9.jpg') }}" alt="Home Decor 9">
+                <h3>Decorative Shelf</h3>
+                <p class="price">Price: ₹1,299</p>
+                <p>Quantity:</p>
+                <div class="quantity-container">
+                    <label class="quantity-label">Quantity:</label>
+                    <input type="number" value="1" min="1">
+                </div>
+                
+                <div class="add-to-cart">
+                    <button onclick="addToCart('Decorative Shelf', '₹1,299.00', this.parentNode.previousElementSibling.children[0].value)">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="{{ url_for('static', filename='/images/decor10.jpg') }}" alt="Home Decor 10">
+                <h3>Wall Clock</h3>
+                <p class="price">Price: ₹999</p>
+                <p>Quantity:</p>
+                <div class="quantity-container">
+                    <label class="quantity-label">Quantity:</label>
+                    <input type="number" value="1" min="1">
+                </div>
+                
+                <div class="add-to-cart">
+                    <button onclick="addToCart('Wall Clock', '₹999.00', this.parentNode.previousElementSibling.children[0].value)">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Wholesale Store. All rights reserved.</p>
+    </footer>
+    <script>
+        function addToCart(productName, productPrice, quantity) {
+    console.log(`Adding to cart: ${productName}, Price: ₹${productPrice}, Quantity: ${quantity}`);
+    
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    
+    // Ensure the quantity is a valid number
+    const qty = parseInt(quantity, 10);
+    if (qty <= 0) {
+        alert("Please enter a valid quantity.");
+        return;
+    }
+
+    // Create the item object
+    const item = {
+        name: productName,
+        price: productPrice,
+        quantity: qty
+    };
+
+    // Check if the item is already in the cart
+    const existingItemIndex = cart.findIndex(i => i.name === productName);
+    if (existingItemIndex !== -1) {
+        // Update quantity if item already exists
+        cart[existingItemIndex].quantity += qty;
+    } else {
+        // Add new item if not already in cart
+        cart.push(item);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart)); // Save updated cart to localStorage
+    
+    // Redirect to the cart route
+    window.location.href = "/cart"; // Change this to your actual cart route
+}
+
+    </script>
+    
+</body>
+
+</html>
