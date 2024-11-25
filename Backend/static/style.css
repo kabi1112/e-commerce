@@ -1,0 +1,410 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Fallback color */
+    background-image: url("static/images/Background.jpg"); /* Change this to your image path */
+    background-size: cover; /* Ensures the image covers the entire body */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    opacity: 0.8; /* Makes the background slightly transparent; adjust as needed */
+}
+
+header {
+    background-color: rgba(52, 58, 64, 0.8); /* Add transparency to header */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Navigation Links Styles */
+.nav-links {
+    background-color: black; /* Background color for the box */
+    border-radius: 15px; /* Rounded corners */
+    padding: 10px; /* Padding around the links */
+    margin: 20px 0; /* Margin for spacing */
+}
+.italic {
+    font-style: italic; /* This makes the text italic */
+}
+
+
+.nav-links ul {
+    list-style: none; /* Remove default list styles */
+    padding: 0; /* Remove default padding */
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: center; /* Center the links */
+}
+
+.nav-links ul li {
+    margin: 0 15px; /* Space between links */
+}
+
+.nav-links ul li a {
+    color: white; /* Link text color */
+    text-decoration: none; /* Remove underline */
+    padding: 8px 15px; /* Padding for links */
+    transition: background-color 0.3s; /* Smooth background transition */
+    border-radius: 10px; /* Rounded corners for links */
+}
+
+.shop-now-button {
+    display: inline-block; /* Makes the anchor behave like a block element */
+    background-color: #e8491d; /* Your button color */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Spacing inside the button */
+    text-decoration: none; /* Remove underline from link */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    border: none; /* No border */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.shop-now-button:hover {
+    background-color: #c73816; /* Darker shade on hover */
+}
+
+
+.nav-links ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+}
+
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.hero {
+    background-color: #e8491d;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero h2 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+.btn {
+    display: inline-block;
+    background-color: white;
+    color: #e8491d;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e8491d; /* Change background color on hover */
+    color: white; /* Change text color on hover */
+    transform: translateY(-2px); /* Slight upward movement */
+}
+
+.featured-categories, .offers, .testimonials, .newsletter {
+    padding: 20px;
+    text-align: center;
+}
+
+.featured-categories h2, .offers h2, .testimonials h2, .newsletter h2 {
+    margin-top: 20px;
+}
+
+.category-list {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.category {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    width: 30%;
+}
+
+.offers {
+    margin-top: 40px;
+}
+
+.testimonials blockquote {
+    font-style: italic;
+    margin: 10px 0;
+}
+
+.newsletter {
+    margin-top: 40px;
+}
+
+.newsletter input[type="email"] {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.newsletter button {
+    padding: 10px 15px;
+    background-color: #e8491d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.newsletter button:hover {
+    background-color: #c73a1a; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight upward movement */
+}
+
+.ankorstore-signup {
+    background-image: url('images/your-background-image.jpg'); /* Replace with your image path */
+    background-size: cover; /* Cover the entire section */
+     /* Center the background image */
+    padding: 40px; /* Padding for the section */
+    color: white; /* Text color */
+    text-align: center; /* Center text */
+}
+
+.signup-content {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better text visibility */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding for content */
+    max-width: 600px; /* Maximum width of the content */
+    margin: 0 auto; /* Center content */
+}
+
+.ankorstore-signup h2 {
+    margin-bottom: 15px; /* Space below the heading */
+}
+
+.ankorstore-signup p {
+    margin-bottom: 20px; /* Space below the paragraph */
+}
+
+
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+header {
+    background-color: #343a40;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.hero {
+    background-color: #e8491d;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero h2 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+.btn {
+    display: inline-block;
+    background-color: white;
+    color: #e8491d;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e8491d; /* Change background color on hover */
+    color: white; /* Change text color on hover */
+    transform: translateY(-2px); /* Slight upward movement */
+}
+
+.featured-categories, .offers, .testimonials, .newsletter {
+    padding: 20px;
+    text-align: center;
+}
+
+.featured-categories h2, .offers h2, .testimonials h2, .newsletter h2 {
+    margin-top: 20px;
+}
+
+.category-list {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+/* Existing styles above... */
+
+.underline {
+    text-decoration: underline; /* Apply underline */
+    text-decoration-color: #e8491d; /* Optional: Change underline color */
+}
+
+
+.category {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    width: 30%;
+}
+
+.offers {
+    margin-top: 40px;
+}
+
+.testimonials blockquote {
+    font-style: italic;
+    margin: 10px 0;
+}
+
+.newsletter {
+    margin-top: 40px;
+}
+
+.newsletter input[type="email"] {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.newsletter button {
+    padding: 10px 15px;
+    background-color: #e8491d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.newsletter button:hover {
+    background-color: #c73a1a; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight upward movement */
+}
+
+footer {
+    background-color: black; /* Background color for the footer */
+    color: white; /* Text color */
+    padding: 20px 20px; /* Padding for spacing */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center align items */
+}
+
+.footer-content {
+    display: flex; /* Flexbox for inner content */
+    justify-content: space-between; /* Space between sections */
+    width: 100%; /* Full width */
+    max-width: 1200px; /* Maximum width for large screens */
+    margin-bottom: 20px; /* Space below footer content */
+}
+
+.subscribe-section, .contact-section, .about-section {
+    flex: 1; /* Equal width for all sections */
+    margin: 0 10px; /* Side margins */
+}
+
+.footer-bottom {
+    text-align: center; /* Center text in footer bottom */
+}
+
+
+.product-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.product {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    width: 30%;
+    margin: 10px;
+    text-align: center;
+}
+
+.product img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.product h3 {
+    margin: 10px 0;
+}
+
+.product p {
+    font-size: 1.1em;
+}
+
+.product .btn {
+    background-color: #e8491d;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.product .btn:hover {
+    background-color: #c73a1a;
+}
+

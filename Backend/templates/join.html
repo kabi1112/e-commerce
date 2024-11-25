@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join for Free - Wholesale Store</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333;">
+    <header style="background-color: #e8491d; padding: 20px; color: white;">
+        <h1 style="margin: 0; text-align: center;">Wholesale Store</h1>
+        <nav>
+            <ul style="list-style-type: none; padding: 0; display: flex; justify-content: center;">
+                <li style="margin: 0 15px;"><a href="index.html" style="color: white; text-decoration: none;">Home</a></li>
+                <li style="margin: 0 15px;"><a href="shop.html" style="color: white; text-decoration: none;">Shop</a></li>
+                <li style="margin: 0 15px;"><a href="about.html" style="color: white; text-decoration: none;">About Us</a></li>
+                <li style="margin: 0 15px;"><a href="contact.html" style="color: white; text-decoration: none;">Contact Us</a></li>
+                <li style="margin: 0 15px;"><a href="faq.html" style="color: white; text-decoration: none;">FAQs</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main style="padding: 20px;">
+        <h2 style="text-align: center; color: #e8491d;">Join for Free</h2>
+        <div style="max-width: 600px; margin: 0 auto; background-color: white; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+            <form action="{{ url_for('submit_join') }}" method="POST"> <!-- Updated Action -->
+                <label for="businessName" style="display: block; margin-bottom: 10px;">Business Name:</label>
+                <input type="text" id="businessName" name="businessName" required style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px;">
+
+                <label for="ownerName" style="display: block; margin-bottom: 10px;">Owner's Name:</label>
+                <input type="text" id="ownerName" name="ownerName" required style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px;">
+
+                <label for="email" style="display: block; margin-bottom: 10px;">Email:</label>
+                <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px;">
+
+                <label for="phone" style="display: block; margin-bottom: 10px;">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px;">
+
+                <label for="address" style="display: block; margin-bottom: 10px;">Business Address:</label>
+                <input type="text" id="address" name="address" required style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px;">
+
+                <label for="products" style="display: block; margin-bottom: 10px;">Products to Sell:</label>
+                <textarea id="products" name="products" required style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px;" rows="4" placeholder="List the products you plan to sell..."></textarea>
+
+                <label for="password" style="display: block; margin-bottom: 10px;">Password:</label>
+                <input type="password" id="password" name="password" required style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px;">
+
+                <button type="submit" style="width: 100%; padding: 10px; background-color: #e8491d; color: white; border: none; border-radius: 5px;">Join Now</button>
+            </form>
+        </div>
+    </main>
+
+    <footer style="background-color: #3b5998; color: white; padding: 20px; text-align: center;">
+        <div class="footer-content">
+            <h3>Subscribe to our Newsletter</h3>
+            <form>
+                <input type="email" placeholder="Enter your email" required style="padding: 10px; margin-right: 5px; border: none; border-radius: 5px;">
+                <button type="submit" style="padding: 10px; background-color: white; color: #e8491d; border: none; border-radius: 5px;">Subscribe</button>
+            </form>
+            <div class="footer-links" style="margin-top: 10px;">
+                <h3>Quick Links</h3>
+                <ul style="list-style-type: none; padding: 0;">
+                    <li><a href="about.html" style="color: white; text-decoration: none;">About Us</a></li>
+                    <li><a href="contact.html" style="color: white; text-decoration: none;">Contact Us</a></li>
+                    <li><a href="faq.html" style="color: white; text-decoration: none;">FAQs</a></li>
+                    <li><a href="terms.html" style="color: white; text-decoration: none;">Terms & Conditions</a></li>
+                    <li><a href="privacy.html" style="color: white; text-decoration: none;">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom" style="margin-top: 10px;">
+            <p>&copy; 2024 Wholesale Store. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
