@@ -1,0 +1,482 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>E-Commerce Homepage</title>
+    <style>
+        /* Basic styles for the homepage */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #3e3b30;
+            color: white;
+            padding: 10px 20px;
+            display: flex; /* Use flexbox to arrange items */
+            align-items: center; /* Center vertically */
+            justify-content: space-between; /* Space between elements */
+        }
+
+        .header-title {
+            margin: 0; /* Remove default margin */
+        }
+
+        .search-container {
+            flex: 1; /* Allow search bar to take available space */
+            margin: 0 20px; /* Margin for spacing */
+            position: relative; /* Position for the search icon */
+        }
+
+        .search-container input[type="text"] {
+            width: 100%; /* Full width for input */
+            padding: 8px; /* Padding for input */
+            border: 1px solid #ccc; /* Border style */
+            border-radius: 5px; /* Rounded corners */
+            padding-left: 40px; /* Space for the search icon */
+        }
+
+        .search-container .search-icon {
+            position: absolute; /* Position the icon inside the input */
+            left: 10px; /* Align icon to the left */
+            top: 50%; /* Center vertically */
+            transform: translateY(-50%); /* Adjust vertical centering */
+            width: 20px; /* Width of the icon */
+            height: 20px; /* Height of the icon */
+            color: #999; /* Icon color */
+        }
+
+        nav {
+            display: flex; /* Use flexbox for button layout */
+            gap: 15px; /* Space between buttons */
+            margin: 10px 0; /* Margin for spacing */
+        }
+
+        nav a {
+            background-color: black; /* Button background color */
+            color: white; /* Text color */
+            padding: 10px 15px; /* Padding for buttons */
+            border-radius: 25px; /* Rounded corners */
+            text-decoration: none; /* Remove underline */
+            transition: background-color 0.3s; /* Transition effect */
+        }
+
+        nav a:hover {
+            background-color: #e8491d; /* Background color on hover */
+        }
+
+        .hero {
+            padding: 40px;
+            text-align: center;
+            background-color: #e8491d;
+            color: white;
+        }
+
+        .btn {
+            background-color: white;
+            color: #e8491d;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        /* Chatbot styles */
+        .chatbot-container {
+            position: fixed; /* Keep it fixed on the screen */
+            bottom: 20px; /* Position from the bottom */
+            right: 20px; /* Position from the right */
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .chatbot-icon {
+            background-color: #e8491d; /* Background color for the icon */
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            animation: blink 1s infinite; /* Blink animation */
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5; /* Semi-transparent */
+            }
+            100% {
+                opacity: 1; /* Fully visible */
+            }
+        }
+
+        .chatbot-icon img {
+            width: 50px; /* Size of the icon */
+            height: 50px; /* Size of the icon */
+        }
+
+        .chatbot-dialog {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 300px;
+            height: 400px;
+            overflow-y: auto;
+            z-index: 10;
+        }
+
+        .chatbot-dialog-header {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .chatbot-dialog-content {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .chatbot-dialog-content button {
+            background-color: #e8491d;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .chatbot-response {
+            margin-top: 10px;
+            background-color: #f1f1f1;
+            padding: 8px;
+            border-radius: 5px;
+            text-align: left;
+        }
+        body {
+            background-image: url("{{ url_for('static', filename='images/Background.jpg') }}");
+            background-size: cover; /* Optional: Ensures the image covers the entire background */
+            background-position: center; /* Optional: Centers the background image */
+            background-repeat: no-repeat; /* Optional: Prevents the image from repeating */
+        }
+    </style>
+</head>
+
+
+
+<body class="home-page">
+    <header>
+        <h1 class="header-title italic">Wholesale Store</h1>
+        <div class="search-container">
+            <input type="text" placeholder="Search for products..." />
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M10.5 2a8.5 8.5 0 1 0 6.068 14.312l4.772 4.773a1 1 0 0 0 1.415-1.415l-4.772-4.772A8.5 8.5 0 0 0 10.5 2zm0 15a6.5 6.5 0 1 1 0-13 6.5 6.5 0 0 1 0 13z" />
+            </svg>
+        </div>
+    </header>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/cart">Cart</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/register">Register</a>
+        <a href="/login">Login</a>
+    </nav>
+
+    
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h2>Welcome to Our E-Commerce Store!</h2>
+            <p>ONLINE WHOLESALE STORE</p>
+            <a href="{{ url_for('shop') }}" class="shop-now-button">Shop Now</a>
+
+            
+        </section>
+
+        <!-- Featured Categories -->
+        <section class="featured-categories">
+            <h2>Featured Categories</h2>
+            <div class="category-list">
+                <div class="category">
+                    <h3 class="underline">Fashion</h3>
+                    <p>Rs.1000 Min. order & free shipping</p>
+                    <p>Discover 300+ brands with a min order of Rs.1000. </p>
+                </div>
+                <div class="category">
+                    <h3 class="underline">Price Match Policy</h3>
+                    <p>Access guaranteed catalogue prices or </p>
+                    <p>we'll refund the difference.</p>
+                </div>
+                <div class="category">
+                    <h3 class="underline">60-Day Payment Terms</h3>
+                    <p>Buy now and pay up to 60 days later.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Offers Section -->
+        <section class="offers">
+            <h2>Get up to 50% off on select items!</h2>
+            <a class="btn" href="#">View Offers</a>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <h2>What Our Customers Say</h2>
+            <blockquote>"Great products! Fast shipping!" - Jane Doe</blockquote>
+            <blockquote>"I love the selection available!" - John Smith</blockquote>
+        </section>
+
+        <!-- Newsletter Signup -->
+        
+    </main>
+
+    <main>
+        <!-- Existing sections... -->
+    
+        <!-- Ankorstore Signup Section -->
+        <section style="text-align: center; margin-top: 40px;">
+            <h2 style="color: #e8491d;">Are you opening a shop?</h2>
+            <a href="{{ url_for('join') }}" style="display: inline-block; padding: 10px 20px; background-color: #e8491d; color: white; text-decoration: none; border-radius: 5px;">
+                Join for Free
+            </a>
+        </section>
+        
+    </main>
+    
+
+    <footer>
+        <div class="footer-content">
+            <div class="subscribe-section">
+                <h3>Subscribe to Our Newsletter</h3>
+                <form action="subscribe.html" method="POST">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="{{ url_for('about') }}">About Us</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+                    <li><a href="{{ url_for('feedback') }}">FAQs</a></li>
+                   
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 E-Commerce Store. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <style>
+        footer {
+            background-color: black; /* Footer background color */
+            color: white; /* Footer text color */
+            padding: 10px 0; /* Reduced padding for the footer */
+            display: flex; /* Use flexbox for layout */
+            flex-direction: column; /* Arrange items vertically */
+            align-items: center; /* Center the items */
+            justify-content: center; /* Center content */
+            text-align: center; /* Center text */
+        }
+    
+        .footer-content {
+            display: flex; /* Use flexbox for content alignment */
+            justify-content: space-around; /* Space out sections */
+            width: 100%; /* Full width */
+            max-width: 1200px; /* Max width for better alignment */
+            padding: 10px; /* Reduced padding around the content */
+        }
+    
+        .subscribe-section, .footer-links {
+            flex: 1; /* Allow equal space for sections */
+            margin: 0 10px; /* Reduced margin for spacing */
+        }
+    
+        .footer-links ul {
+            list-style: none; /* Remove bullet points */
+            padding: 0; /* Remove default padding */
+        }
+    
+        .footer-links li {
+            margin: 2px 0; /* Reduced margin between list items */
+        }
+    
+        .footer-bottom {
+            margin-top: 10px; /* Reduced space above the bottom section */
+        }
+    
+        .footer-content h3 {
+            margin-bottom: 5px; /* Reduced space below headings */
+        }
+    
+        .footer-content form input {
+            padding: 5px; /* Reduced padding for input */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            margin-right: 5px; /* Reduced space between input and button */
+        }
+    
+        .footer-content form button {
+            background-color: #e8491d; /* Button background color */
+            color: white; /* Button text color */
+            padding: 5px 10px; /* Reduced padding for button */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            margin-bottom: 10px; /* Added margin to create space above the footer */
+        }
+    </style>
+    
+    
+    
+
+    <!-- Chatbot Icon -->
+    <div class="chatbot-container" id="chatbot">
+        <div class="chatbot-icon">
+            <img src="{{ url_for('static', filename='images/chat_bot.png') }}" alt="Chat Bot">
+ <!-- Replace with your robot icon image path -->
+        </div>
+        <div class="chatbot-message" id="chatbotMessage">
+            <p>Chat with an agent</p>
+        </div>
+    </div>
+    
+    <div class="chatbot-dialog" id="chatbotDialog" style="display: none;">
+        <div class="chatbot-dialog-header">Virtual Assistant</div>
+        <div class="chatbot-dialog-content">
+            <button onclick="handleButtonClick('Place an Order')">Place an Order</button>
+            <button onclick="handleButtonClick('Get Support')">Get Support</button>
+            <button onclick="handleButtonClick('FAQs')">FAQs</button>
+            <div id="responseContainer"></div>
+            <div id="productInputContainer" style="display: none;">
+                <input type="text" id="productInput" placeholder="Type a product name..." />
+                <button id="submitProduct" onclick="handleProductSubmit()">Submit</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const products = [
+            { name: 'Shirt', image: "{{ url_for('static', filename='images/Product1.jpg') }}", price: "₹1,499.00" },
+            { name: 'Shoe', image: "{{ url_for('static', filename='images/product4.jpg') }}", price: "₹699.00" },
+            { name: 'Gown', image: "{{ url_for('static', filename='images/Product2.jpg') }}", price: "₹799.00" },
+            { name: 'Sandal', image: "{{ url_for('static', filename='images/product3.jpg') }}", price: "₹799.00" },
+            // Add more products as needed
+        ];
+    
+        function handleProductSubmit() {
+            const productInput = document.getElementById('productInput').value.trim();
+            const responseContainer = document.getElementById('responseContainer');
+            responseContainer.innerHTML = ''; // Clear previous responses
+        
+            const product = products.find(p => p.name.toLowerCase() === productInput.toLowerCase());
+        
+            if (product) {
+                const productDiv = document.createElement('div');
+                productDiv.innerHTML = `
+                    <h4>${product.name}</h4>
+                    <img src="${product.image}" alt="${product.name}" style="width:100px; height:auto;"/>
+                    <button style="margin: 5px;" onclick="addToCart('${product.name}')">Add to Cart</button>
+                `;
+                responseContainer.appendChild(productDiv);
+            } else {
+                responseContainer.innerHTML = '<p>Product not found. Please try again.</p>';
+            }
+        
+            // Clear the input field
+            document.getElementById('productInput').value = '';
+        }
+    
+        function addToCart(productName) {
+            // Find the product by name
+            const product = products.find(p => p.name === productName);
+            if (!product) {
+                alert('Product not found!');
+                return;
+            }
+    
+            const cartItem = { name: product.name, price: product.price, quantity: null }; // Set quantity to null
+    
+            // Get existing cart from local storage or initialize an empty array
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Check if the item already exists in the cart
+            const existingItemIndex = cart.findIndex(item => item.name === productName);
+    
+            if (existingItemIndex > -1) {
+                // If item exists, no quantity increment needed (consistent with format)
+            } else {
+                // Otherwise, add the new item
+                cart.push(cartItem);
+            }
+    
+            // Save the updated cart back to local storage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${product.name} has been added to your cart!`);
+        }
+    
+        // Toggle the chatbot dialog on clicking the chatbot icon or message
+        document.getElementById('chatbot').addEventListener('click', function () {
+            const dialog = document.getElementById('chatbotDialog');
+            dialog.style.display = dialog.style.display === 'none' ? 'block' : 'none';
+        });
+    
+        // Function to handle button clicks and show responses
+        function handleButtonClick(option) {
+            const responseContainer = document.getElementById('responseContainer');
+            const productInputContainer = document.getElementById('productInputContainer');
+            let response = '';
+    
+            switch (option) {
+                case 'Place an Order':
+                    response = "Please type the product name:";
+                    productInputContainer.style.display = 'block'; // Show the input field
+                    break;
+                case 'Get Support':
+                    response = "Will redirect you to the support page now.";
+                    setTimeout(() => {
+                        window.location.href = "/support"; // Redirect to the support page
+                    }, 2000); // Wait for 2 seconds before redirecting
+                    break;
+                case 'FAQs':
+                    response = "Redirecting you to the FAQs page.";
+                    setTimeout(() => {
+                        window.location.href = "/feedback"; // Redirect to the FAQs page
+                    }, 2000); // Wait for 2 seconds before redirecting
+                    break;
+            }
+    
+            // Create a new div for the response and append it to the response container
+            const responseDiv = document.createElement('div');
+            responseDiv.className = 'chatbot-response';
+            responseDiv.textContent = response;
+            responseContainer.appendChild(responseDiv);
+    
+            // Scroll to the bottom of the chatbox to show the latest message
+            const chatbotDialog = document.getElementById('chatbotDialog');
+            chatbotDialog.scrollTop = chatbotDialog.scrollHeight;
+        }
+    </script>
+    
+    
+</body>
+
+</html>
